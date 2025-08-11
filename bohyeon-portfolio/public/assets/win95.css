@@ -96,7 +96,7 @@ button:focus { outline: 1px dotted; }
 .card {
   border: 2px solid; border-bottom-color: #424242; border-right-color: #424242;
   border-left-color: #fff; border-top-color: #fff;
-  background: silver; color: #212529;
+  background: silver; color: #212529; font-size: 15px;
 }
 .card.square, .card.square .card-header { border-radius: 0; }
 .card.w95 .card-header { background: #08216b; }
@@ -143,7 +143,7 @@ button:focus { outline: 1px dotted; }
 .taskbar {
   cursor: default;
   background-color: silver;
-  padding: 8px;
+  padding: 5px;
   border-top: 2px outset #fff;
   z-index: 228;
   width: 100%;
@@ -165,28 +165,25 @@ button:focus { outline: 1px dotted; }
   border: 2px outset #fff; background: silver;
   padding: 6px 10px 4px 8px;
   box-shadow: 2px 2px #000; margin-bottom: 2px;
-  font-size: 16px; color: #000; font-weight: 600;
+  font-size: 15px; color: #000; font-weight: 600;
 }
 .start-button:active { border: 2px inset #fff; }
 
 /* Silver separator bar next to Start */
 .taskbar__separator {
-  width: 2px; height: 28px; margin: 0 8px; background: silver;
+  width: 1px; height: 30px; margin: 0 10px; background: silver;
   border-left: 2px solid #fff; border-top: 2px solid #fff;
   border-right: 2px solid #7d7d7d; border-bottom: 2px solid #7d7d7d;
   box-shadow: 1px 1px #000;
 }
 
-
-
-
 /* Task buttons */
-.task-buttons { display: flex; align-items: center; gap: 8px; }
+.task-buttons { display: flex; align-items: center; gap: 7px; }
 .task-buttons .task-button {
   display: inline-flex; align-items: center; gap: 6px;
   border: 2px outset #fff; background: silver;
   padding: 6px 10px 4px 8px; box-shadow: 2px 2px #000;
-  margin-bottom: 2px; font-size: 16px; color: #000;
+  font-size: 15px; color: #000;
 }
 .task-buttons .task-button:active { border: 2px inset #fff; }
 
@@ -195,8 +192,8 @@ button:focus { outline: 1px dotted; }
   color: #212529;
   margin-top: 2px;
   text-align: right;
-  font-size: 20px;
-  margin-right: 0;
+  font-size: 17px;
+  margin-right: 6px;
 }
 
 /* ===== Win98 Start Menu (anchored to the Start button) ===== */
@@ -645,8 +642,7 @@ input:checked + .form-check-label::after { display: block; }
   /* background: linear-gradient(to right, #08216b, #a5cef7); */
   color: black;
   padding: 3px 4px;
-  margin-top: 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .chip-wrap {
@@ -659,7 +655,7 @@ input:checked + .form-check-label::after { display: block; }
   border: 2px outset #fff;
   background: silver;
   padding: 2px 6px;
-  font-size: 15px;
+  font-size: 13px;
   color: black;
   box-shadow: 2px 2px #000;
 }
@@ -684,7 +680,7 @@ input:checked + .form-check-label::after { display: block; }
 }
 
 .kv-val {
-  padding: 4px 6px;
+  padding: 0px 6px;
   /* background: #fff;
   border: 2px inset #d5d5d5; */
   min-height: 24px;
@@ -701,7 +697,7 @@ input:checked + .form-check-label::after { display: block; }
   padding: 10px 10px;
   border: 1px solid transparent;
   cursor: default;
-  font-size: 16x;
+  font-size: 14x;
   user-select: none;
 }
 

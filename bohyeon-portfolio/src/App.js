@@ -39,7 +39,7 @@ function DesktopIcon({ id, label, img, x, y, selected, onSelect, onOpen }) {
           cursor: "pointer",
         }}
       >
-        <img src={img} alt={`${label} Icon`} style={{ width: 52, height: 52 }} />
+        <img src={img} alt={`${label} Icon`} style={{ width: 40, height: 40 }} />
         <div className="desktop-icon-title">{label}</div>
       </div>
     </div>
@@ -213,9 +213,9 @@ export default function App() {
 
   // windows
   const [windows, setWindows] = useState({
-    about:   { id: "about",   title: "About ME",          open: true, minimized: false, maximized: false, icon: "/assets/icons/msg_question-0.png", initial: { left: 400,  top: 200, width: 620 } },
-    projects:{ id: "projects",title: "Projects",          open: true, minimized: false, maximized: false, icon: "/assets/icons/computer_2_cool-0.png", initial: { left: 400,  top: 520, width: 620 } },
-    webamp:  { id: "webamp",  title: "Webamp is coming",  open: true, minimized: true, maximized: false, icon: "/assets/icons/computer_2_cool-4.png", initial: { left: 830, top: 250, width: 620 } },
+    about:   { id: "about",   title: "About ME",          open: true, minimized: false, maximized: false, icon: "/assets/icons/msg_question-0.png", initial: { left: 300,  top: 140, width: 550 } },
+    projects:{ id: "projects",title: "Projects",          open: true, minimized: false, maximized: false, icon: "/assets/icons/computer_2_cool-0.png", initial: { left: 300,  top: 440, width: 550 } },
+    webamp:  { id: "webamp",  title: "Webamp is coming",  open: true, minimized: true, maximized: false, icon: "/assets/icons/computer_2_cool-4.png", initial: { left: 830, top: 250, width: 520 } },
   });
 
   const bringToFront   = (id) => setZMap((p) => ({ ...p, [id]: ++zCounter.current }));
@@ -255,10 +255,10 @@ export default function App() {
 
   // Desktop icons
   const icons = [
-    { id: "resume", label: "Resume", img: "/assets/icons/directory_open_file_mydocs-4.png", x: 60, y: 110, url: "/assets/devops_resume.pdf" },
-    { id: "blog",   label: "Blog",   img: "/assets/icons/url1-0.png",                       x: 60, y: 230, url: "https://tech.brynnpark.xyz/" },
-    { id: "github", label: "Tistory", img: "/assets/icons/accessibility_two_windows.png",   x: 60, y: 350, url: "https://brynn-park.tistory.com/"},
-    { id: "contact",label: "Contact",img: "/assets/icons/recycle_bin_full-2.png",           x: 60, y: 470, url: ""},
+    { id: "resume", label: "Resume", img: "/assets/icons/directory_open_file_mydocs-4.png", x: 50, y: 110, url: "/assets/devops_resume.pdf" },
+    { id: "blog",   label: "Blog",   img: "/assets/icons/url1-0.png",                       x: 50, y: 220, url: "https://tech.brynnpark.xyz/" },
+    { id: "github", label: "Tistory", img: "/assets/icons/accessibility_two_windows.png",   x: 50, y: 330, url: "https://brynn-park.tistory.com/"},
+    { id: "contact",label: "Contact",img: "/assets/icons/recycle_bin_full-2.png",           x: 50, y: 440, url: ""},
   ];
   const openIcon = (id) => {
     const t = icons.find((i) => i.id === id);
@@ -344,32 +344,77 @@ const openProjectWindow = (project) => {
             <li className="nav-item active"><a className="nav-link" href="/">About Me</a></li>
             
             <li className="nav-item dropdown">
-            <button
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Projects
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <button className="dropdown-item" onClick={() => reopenWindow("projects")}>
-                    iteamoa
-                  </button>
-                </li>
-                <li>
-                  <button className="dropdown-item" onClick={() => reopenWindow("about")}>
-                    DB
-                  </button>
-                </li>
-                <li>
-                  <button className="dropdown-item" onClick={() => reopenWindow("webamp")}>
-                    Ai & Data analytics
-                  </button>
+              <button
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Projects
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {openProjectWindow(projects.find(p => p.id === "iteamoa")); bringToFront("iteamoa");}}
+                    >
+                      iteamoa
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {openProjectWindow(projects.find(p => p.id === "db")); bringToFront("db");}}
+                    >
+                      DB
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {openProjectWindow(projects.find(p => p.id === "ai")); bringToFront("ai");}}
+                    >
+                      Ai & Data analytics
+                    </button>
                 </li>
               </ul>
             </li>
-            <li className="nav-item"><a className="nav-link" href="#blog">Blog</a></li>
+            
+            <li className="nav-item dropdown">
+              <button
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  more
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => openProjectWindow(projects.find(p => p.id === "iteamoa"))}
+                    >
+                      Certificates
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => openProjectWindow(projects.find(p => p.id === "db"))}
+                    >
+                      Experience
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => openProjectWindow(projects.find(p => p.id === "ai"))}
+                    >
+                      Activities
+                    </button>
+                </li>
+              </ul>
+            </li>
+
           </ul>
         </div>
         <div className="col-0">
@@ -424,7 +469,7 @@ const openProjectWindow = (project) => {
                 <li>📚 Exploring Linux internals, NUMA, and beyond</li>
                 <li>💡 I enjoy blogging, mentoring, and building things</li>
               </ul>
-              <a href="personal_page.html" className="btn btn-lg btn-block"> Contact me </a>
+              <a href="mailto:brynnparkjustdoit@gmail.com" className="btn btn-lg btn-block"> Contact me </a>
             </div>
           </div>
         </DraggableWindow>
@@ -435,7 +480,7 @@ const openProjectWindow = (project) => {
             style={{
                 position: "absolute",
                 top: 100,
-                left: 1300,
+                left: 1070,
                 width: 520,       // fixed width
                 height: "auto",   // or set a fixed height if needed
                 flex: "none"      // prevents flex-based resizing
