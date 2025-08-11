@@ -26,7 +26,7 @@ a { color: #2d49eb; }
 header {
   position: relative;
   background-color: black;
-  height: 100vh;
+  height: 100dvh;
   min-height: 25rem;
   width: 100%;
   overflow: hidden;
