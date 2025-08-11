@@ -47,11 +47,11 @@ resource "null_resource" "delete_all_objects" {
 
 resource "aws_s3_object" "upload-build-file" {
     depends_on = [null_resource.delete_all_objects]
-    for_each        = fileset("../../bohyeon-portfolio/build/", "**")
+    for_each        = fileset("../bohyeon-portfolio/build/", "**")
 
     bucket          = "${var.static_bucket_name}"
     key             = each.value
-    source          = "../../bohyeon-portfolio/build/${each.value}"
+    source          = "../bohyeon-portfolio/build/${each.value}"
     # etag            = filemd5("../../bohyeon-portfolio/build/${each.value}")
 
     content_type = lookup({
