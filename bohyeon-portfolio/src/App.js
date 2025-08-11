@@ -225,7 +225,7 @@ export default function App() {
   const reopenWindow   = (id) => setWindows((p) => ({ ...p, [id]: { ...p[id], open: true, minimized: false } }));
 
   // Start menu open/close
-  const [_, setStartOpen] = useState(false);
+  const [, setStartOpen] = useState(false);
 
   // time
   const [timeText, setTimeText] = useState("");
