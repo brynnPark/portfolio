@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - upload
   workflow_dispatch:
     inputs:
       environment:
@@ -13,57 +12,11 @@ on:
         default: 'deploy'
 
 jobs:
-  terraform-deploy:
-    name: Terraform Apply - Deploy
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'deploy') }}  # Run this job on 'main' branch or manual dispatch for 'deploy'
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-            terraform_version: 1.0.0
-
-      - name: Terraform init
-        id: tf-init
-        working-directory: terraform/deploy
-        run: terraform init
-
-      - name: Terraform validate
-        working-directory: terraform/deploy
-        run: terraform validate
-
-        # An exit code of 0 indicated no changes, 1 a terraform failure, 2 there are pending changes.
-      - name: Terraform plan
-        id: tf-plan
-        working-directory: terraform/deploy
-        run: |
-                echo "Starting Terraform plan..."
-                terraform plan -no-color | tee plan.log
-                echo "Terraform plan completed. Output is stored in plan.log."
-        continue-on-error: true
-
-        # Apply the pending changes
-      - name: Terraform apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        working-directory: terraform/deploy
-        run: |
-            terraform apply -auto-approve -input=false
 
   terraform-upload:
     name: Terraform Apply - Upload
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/upload' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'upload') }}  # Run this job on 'upload' branch or manual dispatch for 'upload'
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
