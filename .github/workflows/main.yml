@@ -23,14 +23,14 @@ jobs:
 
       - name: Install dependencies w/ ci
         run: npm ci
-        working-directory: my_web_page
+        working-directory: bohyeon-portfolio
 
       - name: Find build directory
         run: find . -type d -name build  # Find where the build directory is created
 
       - name: Build app
         run:  npm run build
-        working-directory: my_web_page
+        working-directory: portfolio
     
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -44,17 +44,17 @@ jobs:
 
       # Initialize Terraform for the "upload" environment
       - name: Terraform Init
-        working-directory: terraform/upload
+        working-directory: terraform
         run: terraform init
 
       # Plan Terraform changes for the "upload" environment
       - name: Terraform Plan
-        working-directory: terraform/upload
+        working-directory: terraform
         run: terraform plan
 
       # Apply Terraform changes for the "upload" environment
       - name: Terraform Apply
-        working-directory: terraform/upload
+        working-directory: terraform
         run: terraform apply -auto-approve
     
       # # Verify deletion
