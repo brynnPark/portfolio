@@ -344,15 +344,14 @@ const openProjectWindow = (project) => {
             <li className="nav-item active"><a className="nav-link" href="#">About Me</a></li>
             
             <li className="nav-item dropdown">
-              <a
+            <button
                 className="nav-link dropdown-toggle"
-                href="#"
                 role="button"
-                data-bs-toggle="dropdown" 
+                data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Projects
-              </a>
+              </button>
               <ul className="dropdown-menu">
                 <li>
                   <button className="dropdown-item" onClick={() => reopenWindow("projects")}>
@@ -548,9 +547,9 @@ const openProjectWindow = (project) => {
                   <div className="social-buttons mt-3">
                     <a href="mailto:brynnparkjustdoit@gmail.com" className="btn btn-sm me-2">✉️ Email</a>
                     <a href="https://github.com/brynnPark/" target="_blank" rel="noreferrer" className="btn btn-sm me-2">🐙 GitHub</a>
-                    <a href="#" target="_blank" rel="noreferrer" className="btn btn-sm me-2">LinkedIn</a>
-                    <a href="#" target="_blank" rel="noreferrer" className="btn btn-sm me-2">X</a>
-                    <a href="#" target="_blank" rel="noreferrer" className="btn btn-sm me-2">IG</a>
+                    <a href="https://www.linkedin.com/in/bohyeon-park-3a79611b6" target="_blank" rel="noreferrer" className="btn btn-sm me-2">LinkedIn</a>
+                    <a href="https://x.com/BrynnPark_eth" target="_blank" rel="noreferrer" className="btn btn-sm me-2">X</a>
+                    <a href="https://www.instagram.com/justdoitbrynn" target="_blank" rel="noreferrer" className="btn btn-sm me-2">IG</a>
                   </div>
                 </div>
               )}
