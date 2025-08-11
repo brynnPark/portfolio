@@ -333,7 +333,7 @@ const openProjectWindow = (project) => {
     >
       {/* Top navbar (optional) */}
       <nav className="navbar navbar-expand-lg navbar-light navbar-95">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img src="/assets/icons/computer-3.png" alt="icon" /> Navbar
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -341,12 +341,11 @@ const openProjectWindow = (project) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item active"><a className="nav-link" href="#">About Me</a></li>
+            <li className="nav-item active"><a className="nav-link" href="/">About Me</a></li>
             
             <li className="nav-item dropdown">
             <button
                 className="nav-link dropdown-toggle"
-                role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -355,17 +354,17 @@ const openProjectWindow = (project) => {
               <ul className="dropdown-menu">
                 <li>
                   <button className="dropdown-item" onClick={() => reopenWindow("projects")}>
-                    Open “Projects”
+                    iteamoa
                   </button>
                 </li>
                 <li>
                   <button className="dropdown-item" onClick={() => reopenWindow("about")}>
-                    Open “About”
+                    DB
                   </button>
                 </li>
                 <li>
                   <button className="dropdown-item" onClick={() => reopenWindow("webamp")}>
-                    Open “Webamp”
+                    Ai & Data analytics
                   </button>
                 </li>
               </ul>
@@ -658,55 +657,63 @@ const openProjectWindow = (project) => {
                   <li className="start-menu__line" aria-hidden="true"></li>
 
                   <li>
-                    <a
-                      href="#"
+                    <button
                       className="start-menu__item"
-                      onClick={(e) => { e.preventDefault(); reopenWindow("about"); document.getElementById("start-button-input").checked = false; }}
+                      onClick={() => {
+                        reopenWindow("about");
+                        document.getElementById("start-button-input").checked = false;
+                      }}
                     >
                       <img src="/assets/icons/msg_question-0.png" alt="" /> About ME
-                    </a>
+                    </button>
                   </li>
 
                   <li className="start-menu__li--has-sub">
-                    <a
-                      href="#"
+                    <button
                       className="start-menu__item start-menu__item--has-sub"
-                      onClick={(e) => e.preventDefault()} // open via hover; no toggle click
+                      aria-haspopup="true"
+                      aria-expanded="false"
                     >
                       <img src="/assets/icons/computer_2_cool-0.png" alt="" /> Projects
-                    </a>
+                    </button>
 
                     {/* Submenu (flies out to the right) */}
                     <ul className="start-menu__submenu" role="menu" aria-label="Projects submenu">
                       <li>
-                        <a
-                          href="#"
+                        <button
                           className="start-menu__item"
-                          onClick={(e) => { e.preventDefault(); openProjectWindow(projects.find(p => p.id === "iteamoa")); closeStartMenu(); }}
+                          onClick={() => {
+                            openProjectWindow(projects.find(p => p.id === "iteamoa"));
+                            closeStartMenu();
+                          }}
                         >
                           <img src="/assets/icons/directory_folder_options-5.png" alt="" />
                           iteamoa (k8s, gitops)
-                        </a>
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <button
                           className="start-menu__item"
-                          onClick={(e) => { e.preventDefault(); openProjectWindow(projects.find(p => p.id === "db")); closeStartMenu(); }}
+                          onClick={() => {
+                            openProjectWindow(projects.find(p => p.id === "db"));
+                            closeStartMenu();
+                          }}
                         >
                           <img src="/assets/icons/note-0.png" alt="" />
                           DB (Second Handed Market)
-                        </a>
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <button
                           className="start-menu__item"
-                          onClick={(e) => { e.preventDefault(); openProjectWindow(projects.find(p => p.id === "ai")); closeStartMenu(); }}
+                          onClick={() => {
+                            openProjectWindow(projects.find(p => p.id === "ai"));
+                            closeStartMenu();
+                          }}
                         >
                           <img src="/assets/icons/url1-0.png" alt="" />
                           AI & Data Analytics
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </li>
@@ -725,15 +732,15 @@ const openProjectWindow = (project) => {
                   <li className="start-menu__line" aria-hidden="true"></li>
 
                   <li>
-                    <a
-                      href="/assets/devops_resume.pdf"
-                      target="_blank"
-                      rel="noreferrer"
+                    <button
                       className="start-menu__item"
-                      onClick={() => { document.getElementById("start-button-input").checked = false; }}
+                      onClick={() => {
+                        reopenWindow("webamp");
+                        document.getElementById("start-button-input").checked = false;
+                      }}
                     >
-                      <img src="/assets/icons/directory_open_file_mydocs-4.png" alt="" /> Resume (PDF)
-                    </a>
+                      <img src="/assets/icons/computer_2_cool-4.png" alt="" /> Webamp
+                    </button>
                   </li>
 
                   <li>
