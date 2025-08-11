@@ -7,13 +7,13 @@
 */
 
 /* ===== Base ===== */
-html { position: relative; min-height: 100%; }
+/* html { position: relative; min-height: 100%; } */
 
 body {
   font-family: "MS Sans Serif", Tahoma, Verdana, Segoe, sans-serif;
   background: teal;
   color: white;
-  padding-bottom: 28px; /* space for taskbar */
+  /*padding-bottom: 28px; /* space for taskbar */
   user-select: none;
 }
 
@@ -40,7 +40,7 @@ header video {
 header .container { position: relative; z-index: 2; }
 
 /* ===== Scrollbar (WebKit) ===== */
-::-webkit-scrollbar { width: 20px; }
+::-webkit-scrollbar { width: 20px; display: none;}
 ::-webkit-scrollbar-button:end:increment,
 ::-webkit-scrollbar-button:start:decrement { display: block; width: 20px; height: 20px; }
 ::-webkit-scrollbar-button:vertical:end:decrement,
