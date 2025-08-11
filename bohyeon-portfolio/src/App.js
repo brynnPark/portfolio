@@ -225,7 +225,7 @@ export default function App() {
   const reopenWindow   = (id) => setWindows((p) => ({ ...p, [id]: { ...p[id], open: true, minimized: false } }));
 
   // Start menu open/close
-  const [startOpen, setStartOpen] = useState(false);
+  const [_, setStartOpen] = useState(false);
 
   // time
   const [timeText, setTimeText] = useState("");
@@ -720,13 +720,15 @@ const openProjectWindow = (project) => {
 
 
                   <li>
-                    <a
-                      href="#"
+                    <button
                       className="start-menu__item"
-                      onClick={(e) => { e.preventDefault(); reopenWindow("webamp"); document.getElementById("start-button-input").checked = false; }}
+                      onClick={() => {
+                        reopenWindow("webamp");
+                        document.getElementById("start-button-input").checked = false;
+                      }}
                     >
                       <img src="/assets/icons/computer_2_cool-4.png" alt="" /> Webamp
-                    </a>
+                    </button>
                   </li>
 
                   <li className="start-menu__line" aria-hidden="true"></li>
